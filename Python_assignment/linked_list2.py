@@ -7,15 +7,16 @@ class Node:
 class LinkedList:
     def __init__(self):
         self._first=None
+        self._tail = None
 
     def append(self, value):
         if self._first==None: # list is empty
             self._first=Node(value)
+            self._tail = self._first
         else: # add to the end of a non-empty list
-            n=self._first
-            while n._next:
-                n=n._next
-            n._next=Node(value, previous=n)
+            new_node = Node(value, previous=self._tail)
+            self._tail._next = new_node
+            self._tail = new_node
 
     def info(self):
         if self._first==None: 
@@ -54,8 +55,14 @@ class LinkedList:
         n._value=value
 
     def insert(list, index, value):
+        if list.size()==index:
+            new_node = Node(value, previous=list._tail)
+            list._tail._next = new_node
+            list._tail = new_node
+            return
+        
         y = list.get_node(index)
-
+        
         if not y:
             return
 
@@ -67,6 +74,9 @@ class LinkedList:
             x._next=new_node
         else:
             list._first=new_node
+
+        if y._next == None:
+            list._tail = new_node
 
         y._previous=new_node
 
@@ -85,7 +95,40 @@ class LinkedList:
 
         if y:
             y._previous=x
+        else:
+            list._tail = x
         return n._value
+    
+    def clear(self):
+        temp = self._first
+        while temp!=None:
+            self.remove(0)
+            temp = temp._next
+    def count(self, data):
+        temp = self._first
+        count = 0
+        while temp != None:
+            if(temp._value == data):
+                count += 1
+            temp = temp._value
+        return count
+    
+    def __str__(self):
+        output = '('
+        temp = self._first
+        while temp != None:
+            output += str(temp._value) + ','
+            temp = temp._next
+        output +=')'
+        return output
+
+    def __contains__(self, data):
+        temp = self._first
+        while temp != None:
+            if temp._value == data:
+                return True
+            temp = temp._next
+        return False
     
 l1=LinkedList()
 for i in range(5):
