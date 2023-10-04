@@ -1,5 +1,5 @@
-
 from linked_list2 import LinkedList
+
 
 
 def find_primes(self):
