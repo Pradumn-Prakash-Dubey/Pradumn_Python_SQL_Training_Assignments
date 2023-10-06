@@ -9,7 +9,6 @@ def cached(func):
             
             results = func(*args)
             cache.setdefault(argv, results)
-            return results
         else:
             print(cache[argv])
             return results
