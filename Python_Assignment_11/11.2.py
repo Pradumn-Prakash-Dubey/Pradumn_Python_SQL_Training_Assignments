@@ -22,9 +22,9 @@ class Timer:
         return primes
 
 with Timer() as t:
-    t.__enter__()
     p = t.find_primes(2, 11000)
     print('Total Prime Numbers', len(p))
-    t.__exit__(None,None,None)
-    print('Total time taken', t.time_taken)
+    
+print('Total time taken', t.time_taken)
+   
    
