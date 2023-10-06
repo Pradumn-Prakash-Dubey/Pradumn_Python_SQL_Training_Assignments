@@ -11,7 +11,7 @@ class Timer:
         return self.time_taken
 
 
-    def find_primes(self,min, max):
+def find_primes(min, max):
         primes = []
         for num in range(min+1, max):
             for x in range(2,num):
@@ -22,7 +22,7 @@ class Timer:
         return primes
 
 with Timer() as t:
-    p = t.find_primes(2, 11000)
+    p = find_primes(2, 11000)
     print('Total Prime Numbers', len(p))
     
 print('Total time taken', t.time_taken)
