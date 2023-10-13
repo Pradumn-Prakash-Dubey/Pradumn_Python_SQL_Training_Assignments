@@ -1,4 +1,4 @@
-from dbutils import result_as_dict
+from database_utils import result_as_dict
 def get_all_authors(cursor):
     cursor.execute('select * from Authors')
     results=result_as_dict(cursor)
