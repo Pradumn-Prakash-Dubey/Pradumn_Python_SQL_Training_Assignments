@@ -1,10 +1,10 @@
 import pyodbc as db
 import os
-from dbutils import result_as_dict
-from Users import *
-from Authors import *
-from Books import *
-from Reviews import *
+from database_utils import result_as_dict
+from Users_info import *
+from Authors_info import *
+from Books_info import *
+from get_all_reviews import *
 
 
 
