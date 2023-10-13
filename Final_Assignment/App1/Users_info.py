@@ -1,4 +1,4 @@
-from dbutils import result_as_dict
+from database_utils import result_as_dict
 
 def get_all_users(cursor):
     cursor.execute('select * from REVIEWS')
